@@ -22,10 +22,10 @@
     <string name="header_notifications">Notifications</string>
     <string name="header_app">App</string>
 
-    <string name="hide_launcher_icon_title">Hide launcher icon</string>
+    <string name="hide_launcher_icon_title">Hide app icon</string>
     <string name="hide_launcher_icon">May require launcher restart</string>
     <string name="debug_log_title">Debug log</string>
-    <string name="debug_log">Warning: Log-flooding</string>
+    <string name="debug_log">Warning: Log flooding</string>
 
     <string name="requires_android_version">Requires Android %1$s</string>
     <!-- /prefs -->
@@ -59,20 +59,20 @@
 
     <!-- RECENTS -->
     <string name="enable_recents_double_tap_title">Double-tap app switch</string>
-    <string name="enable_recents_double_tap">Double tap the recents key to switch to the last used app</string>
+    <string name="enable_recents_double_tap">Double tap the overview button to switch to the last used app</string>
     <string name="double_tap_speed_title">Double tap speed</string>
     <string name="enable_recents_navigation_title">Enable recent apps navigation</string>
-    <string name="enable_recents_navigation">Use the recents key to navigate through the recents</string>
+    <string name="enable_recents_navigation">Use the overview button to navigate through the recents</string>
     <string name="recents_navigation_delay_title">Navigation delay</string>
-    <string name="recents_navigation_delay">Time until the selected app gets focused</string>
+    <string name="recents_navigation_delay">The time between app selection and opening.</string>
     <string name="enable_large_recents">Enable large recent apps</string>
 
-    <string name="no_previous_recents">No previous app</string>
+    <string name="no_previous_recents">No recent items</string>
     <!-- /RECENTS -->
 
     <!-- STATUS BAR HEADER -->
     <string name="enable_notification_header">Style header</string>
-    <string name="notification_header_qs_tiles_count">QS tiles to show</string>
+    <string name="notification_header_qs_tiles_count">The number of QS tiles to show</string>
     <string name="notification_header_qs_tiles_count_monitor">tiles</string>
     <!-- /STATUS BAR HEADER -->
 
@@ -89,8 +89,8 @@
     <!-- /NOTIFICATIONS -->
 
     <!-- UPDATE -->
-    <string name="update_notification_title">New update available</string>
-    <string name="update_notification">Build %1$d is now available to download.</string>
+    <string name="update_notification_title">New update is available</string>
+    <string name="update_notification">Build %1$d is now available.</string>
     <string name="update_notification_download">Download</string>
     <!-- /UPDATE -->
 
