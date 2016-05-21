@@ -154,6 +154,15 @@
     <string name="info_organdonor">Organ donor</string>
 
     <string name="info_unspecified">None specified</string>
+
+    <string name="info_bloodtype_op">O+</string>
+    <string name="info_bloodtype_on">O-</string>
+    <string name="info_bloodtype_ap">A+</string>
+    <string name="info_bloodtype_an">A-</string>
+    <string name="info_bloodtype_bp">B+</string>
+    <string name="info_bloodtype_bn">B-</string>
+    <string name="info_bloodtype_abp">AB+</string>
+    <string name="info_bloodtype_abn">AB-</string>
     <!-- /EMERGENCY -->
 
     <string name="yes">Yes</string>

@@ -14,14 +14,14 @@
     </string-array>
 
     <string-array name="info_blood_types">
-        <item>O+</item>
-        <item>O-</item>
-        <item>A+</item>
-        <item>A-</item>
-        <item>B+</item>
-        <item>B-</item>
-        <item>AB+</item>
-        <item>AB-</item>
+        <item>@string/info_bloodtype_op</item>
+        <item>@string/info_bloodtype_on</item>
+        <item>@string/info_bloodtype_ap</item>
+        <item>@string/info_bloodtype_an</item>
+        <item>@string/info_bloodtype_bp</item>
+        <item>@string/info_bloodtype_bn</item>
+        <item>@string/info_bloodtype_abp</item>
+        <item>@string/info_bloodtype_abn</item>
         <item>@string/info_unspecified</item>
     </string-array>
 
