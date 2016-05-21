@@ -48,17 +48,20 @@ import tk.wasdennnoch.androidn_ify.utils.UpdateUtils;
 public class EmergencyInfoActivity extends Activity {
 
     private boolean mEditable;
-    private KeyguardManager mKeyguardManager;
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mEditable = getIntent().hasExtra("editable") && getIntent().getExtras().getBoolean("editable", false);
+        if (mEditable) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            ThemeUtils.applyTheme(this, prefs);
+            getActionBar().setTitle(getString(R.string.edit_emergency_info_title));
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency_info);
 
-        mEditable = getIntent().hasExtra("editable") && getIntent().getExtras().getBoolean("editable", false);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-
-        mKeyguardManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
 
         if (savedInstanceState == null)
             getFragmentManager().beginTransaction().replace(R.id.fragment, new InfoFragment()).commit();
@@ -134,6 +137,7 @@ public class EmergencyInfoActivity extends Activity {
 
         }
 
+        @SuppressWarnings("ConstantConditions")
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = super.onCreateView(inflater, container, savedInstanceState);
