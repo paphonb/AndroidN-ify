@@ -13,4 +13,21 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="info_blood_types">
+        <item>O+</item>
+        <item>O-</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>@string/info_unspecified</item>
+    </string-array>
+
+    <string-array name="info_organdonor_values">
+        <item>@string/yes</item>
+        <item>@string/no</item>
+        <item>@string/info_unspecified</item>
+    </string-array>
 </resources>
