@@ -64,7 +64,6 @@
             android:parentActivityName=".ui.SettingsActivity">
             <intent-filter>
                 <action android:name="tk.wasdennnoch.androidn_ify.ui.BlacklistAppActivity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -75,10 +74,11 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="tk.wasdennnoch.androidn_ify.ui.EmergencyInfoActivity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.EditQSActivity"
+            android:theme="@android:style/Theme.Material.Light.DarkActionBar"/>
     </application>
 
 </manifest>

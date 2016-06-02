@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <string name="xposed_description">Ports back features introduced in Android N to Lollipop and Marshmallow!</string>
 
@@ -14,7 +12,19 @@
     <string name="about_version">Version %1$s (%2$d)</string>
 
     <!-- prefs -->
-    <string name="prefs_file_not_readable">The preference file isn\'t readable by Xposed, default values will be used in hooks. This could be due to enforcing SELinux.</string>
+    <string name="prefs_not_readable"><![CDATA[<b>Warning:</b> The preference file isn\'t readable by Xposed. Click for more info&#8230;]]></string>
+    <string name="prefs_not_readable_description"><![CDATA[
+        Xposed can\'t read the preference file of this module, default values will be used in hooks.
+        There are several ways to fix this problem. Also note that this error pops up if you\'ve never
+        opened the app before.<br><br>
+        First, reboot the device (No soft reboot!).<br>
+        If that doesn\'t help, try reinstalling the module.<br>
+        If both attempts fail, ensure that your SELinux mode is set to <i>permissive</i>.
+        <i>Enforcing</i> SELinux might block access to the preference file. In order to change the mode,
+        use the app <tt>SELinuxModeChanger</tt> that you can download
+        <a href="http://forum.xda-developers.com/showthread.php?t=2524485">in this XDA thread</a>.<br>
+        If even that fails, you probably have to live with the default values, sorry :(
+        ]]></string>
 
     <string name="header_tweaks">Tweaks</string>
     <string name="header_app">App</string>
@@ -22,6 +32,7 @@
     <string name="app_dark_theme_title">Dark app theme</string>
     <string name="hide_launcher_icon_title">Hide launcher icon</string>
     <string name="hide_launcher_icon">May require launcher restart</string>
+    <string name="force_english_title">Force English language</string>
     <string name="debug_log_title">Debug log</string>
     <string name="debug_log">Warning: Log-flooding</string>
 
@@ -64,12 +75,10 @@
 
     <!-- RECENTS -->
     <string name="header_recents">Recents</string>
-    <string name="enable_recents_double_tap_title">Double-tap app switch</string>
+    <string name="enable_recents_double_tap_title">Quick switch</string> <!-- That's how Google calls it -->
     <string name="enable_recents_double_tap">Double tap the recents key to switch to the last used app</string>
     <string name="double_tap_speed_title">Double tap speed</string>
     <string name="recents_button_behavior_title">Recents button click behavior</string>
-    <string name="enable_recents_navigation_title">Recent apps navigation</string>
-    <string name="enable_recents_navigation">Use the recents key to navigate through the recents</string>
     <string name="recents_navigation_delay_title">Navigation delay</string>
     <string name="recents_navigation_delay">Time until the selected app gets focused</string>
     <string name="enable_large_recents">Large recent apps</string>
@@ -85,8 +94,13 @@
     <!-- STATUS BAR HEADER -->
     <string name="header_status_bar_header">Status bar header</string>
     <string name="enable_notification_header">Style header</string>
+    <string name="keep_qs_panel_bg_title">Unaltered QS background</string>
+    <string name="keep_qs_panel_bg">Useful for themes that apply a custom QS panel background</string>
     <string name="notification_header_qs_tiles_count">QS tiles to show</string>
     <string name="notification_header_qs_tiles_count_monitor">tiles</string>
+    <string name="battery_tile_show_percentage">Show percentage in battery tile</string>
+    <string name="alternative_header_qs_method_title">Alternative QS loading method</string>
+    <string name="alternative_header_qs_method">Enable when there are positioning issues with the QS icons</string>
     <string name="enable_new_tile_click_behavior">Android N tile click behavior</string>
     <string name="enable_new_tile_click_behavior_summary">Clicking a tile in header will toggle it and clicking a tile in the panel will expand it</string>
     <string name="enable_large_first_row">Enlarge first row</string>
@@ -106,12 +120,8 @@
     <!-- NOTIFICATIONS -->
     <string name="header_notifications">Notifications</string>
     <string name="notifications_change_style">Style Notifications</string>
-    <string name="notifications_dark_theme_title">Dark notification theme</string>
-    <string name="notifications_dark_theme">Dark notification background for users of specific layers themes</string>
     <string name="notification_dismiss_button_title">Change dismiss button</string>
     <string name="notification_dismiss_button">Show \"CLEAR ALL\" instead of dismiss icon</string>
-    <string name="notification_allow_load_label_with_pm_title">Alternative app name loading method</string>
-    <string name="notification_allow_load_label_with_pm">Allow loading application name with PackageManager. May cause performance issues</string>
     <string name="action_search">Search</string>
     <string name="notification_blacklisted_apps_title">Blacklisted apps</string>
     <string name="notification_blacklisted_apps">Use old notification style for these apps</string>
@@ -168,4 +178,14 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
+    <!-- BATTERY -->
+    <string name="battery">Battery</string>
+    <string name="charged">Charged</string>
+    <string name="charging">Charging, %1$s</string>
+    <!-- /BATTERY -->
+
+    <!-- QS -->
+    <string name="qs_edit">Edit</string>
+    <string name="qs_edit_detail">Edit tiles</string>
+    <!-- /QS -->
 </resources>

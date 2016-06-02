@@ -14,7 +14,19 @@
     <string name="about_version">Verzia: %1$s (%2$d)</string>
 
     <!-- prefs -->
-    <string name="prefs_file_not_readable">Xposed nevie čítať súbor nastavení, budú použité predvolené hodnoty. To môže byť spôsobené ak je SELinux v režime enforcing.</string>
+    <string name="prefs_not_readable"><![CDATA[<b>Upozornenie:</b> Xposed nevie čítať súbor nastavení. Kliknite pre viac informácií&#8230;]]></string>
+    <string name="prefs_not_readable_description"><![CDATA[
+        Xposed nevie čítať súbor nastavení tohto modulu, budú použité predvolené hodnoty.
+        Je viac spôsobov ako vyriešiť tento problém. Táto chyba sa môže zobraziť aj v prípade, 
+        že ste aplikáciu ešte neotvárali.<br><br>
+        Najskôr, reštartujte zariadenie (úplný reštart!).<br>
+        Ak to nepomôže, skúste preinštalovať modul.<br>
+        Ak oba pokusy zlyhajú, uistite sa, že SELinux je nastavený na režim <i>permissive</i>.
+        SELinux v režime <i>enforcing</i> môže blokovať prístup k súboru nastavení. Pre zmenu režimu 
+        použite aplikáciu <tt>SELinuxModeChanger</tt>, ktorú môžete stiahnuť 
+        <a href="http://forum.xda-developers.com/showthread.php?t=2524485">z tejto témy na XDA</a>.<br>
+        Ak aj to zlyhá, pravdepodobne sa budete musieť zmieriť s predvolenými hodnotami, prepáčte :(
+        ]]></string>
 
 
     <string name="header_tweaks">Úpravy</string>
@@ -34,8 +46,6 @@
     <string name="enable_recents_double_tap">Dvojitým poklepaním otvorí predchádzajúcu aplikáciu</string>
     <string name="double_tap_speed_title">Rýchlosť dvojitého poklepania</string>
     <string name="recents_button_behavior_title">Správanie tlačidla nedávnych aplikácií</string>
-    <string name="enable_recents_navigation_title">Navigácia v nedávnych aplikáciách</string>
-    <string name="enable_recents_navigation">Použije tlačidlo nedávnych apl. pre navigáciu medzi apl.</string>
     <string name="recents_navigation_delay_title">Oneskorenie navigácie</string>
     <string name="recents_navigation_delay">Čas pokým sa zvolená aplikácia otvorí</string>
     <string name="enable_large_recents">Veľké nedávne aplikácie</string>
@@ -51,8 +61,13 @@
     <!-- STATUS BAR HEADER -->
     <string name="header_status_bar_header">Záhlavie stavového riadku</string>
     <string name="enable_notification_header">Upraviť záhlavie</string>
+    <string name="keep_qs_panel_bg_title">Nemeniť pozadie rýchlych nastavení</string>
+    <string name="keep_qs_panel_bg">Užitočné pre témy, ktoré používajú vlastné pozadie panela rýchlych nastavení</string>
     <string name="notification_header_qs_tiles_count">Zobraziť maximálne</string>
     <string name="notification_header_qs_tiles_count_monitor">dlaž.</string>
+    <string name="battery_tile_show_percentage">Zobraziť percentá v dlaždici s batériou</string>
+    <string name="alternative_header_qs_method_title">Alternatívna metóda načítania dlaždíc</string>
+    <string name="alternative_header_qs_method">Povoľte, ak máte problémy s pozíciou ikon rýchlych nastavení</string>
     <string name="enable_new_tile_click_behavior">Android N správanie dlaždice po klepnutí</string>
     <string name="enable_new_tile_click_behavior_summary">Klepnutie na dlaždicu v záhlaví ju prepne a klepnutie na dlaždicu v panely ju rozbalí</string>
     <string name="enable_large_first_row">Zväčšiť prvý riadok</string>
@@ -72,15 +87,15 @@
     <!-- NOTIFICATIONS -->
     <string name="header_notifications">Upozornenia</string>
     <string name="notifications_change_style">Upozornenia v N štýle</string>
-    <string name="notifications_dark_theme_title">Tmavá téma upozornení</string>
-    <string name="notifications_dark_theme">Tmavá téma pozadia upozornení pre používateľov špecifických Layers tém</string>
     <string name="notification_dismiss_button_title">Zmeniť tlačidlo pre vymazanie</string>
     <string name="notification_dismiss_button">Zobrazí \"VYMAZAŤ VŠETKO\" namiesto ikony</string>
-    <string name="notification_allow_load_label_with_pm_title">Povoliť načítanie názvu apl. pomocou PackageManager</string>
-    <string name="notification_allow_load_label_with_pm">Môže spôsobiť problémy s výkonom</string>
     <string name="action_search">Hľadať</string>
     <string name="notification_blacklisted_apps_title">Zakázané aplikácie</string>
     <string name="notification_blacklisted_apps">Použije starý štýl upozornení pre vybrané aplikácie</string>
+    <string name="notifications_custom_color_title">Použiť vlastnú farbu pre zvýraznenie</string>
+    <string name="notifications_accent_color_title">Farba zvýraznenia</string>
+    <string name="notifications_custom_actions_color_title">Použiť vlastnú farbu pozadia pre akcie</string>
+    <string name="notifications_actions_color_title">Farba pozadia akcií</string>
     <!-- /NOTIFICATIONS -->
   
     <!-- UPDATE -->
@@ -97,10 +112,23 @@
     <string name="update_notification_download_fail">Sťahovanie zlyhalo</string>
     <string name="update_notification_download_fail_details">Chyba pri sťahovaní zostavy %1$d</string>
     <!-- /UPDATE -->
+  
+    <!-- BATTERY -->
+    <string name="battery">Batéria</string>
+    <string name="charged">Nabitá</string>
+    <string name="charging">Nabíjanie, %1$s</string>
+    <!-- /BATTERY -->
+
+    <!-- QS -->
+    <string name="qs_edit">Upraviť</string>
+    <string name="qs_edit_detail">Upraviť dlaždice</string>
+    <!-- /QS -->
 
     <string name="header_app">Aplikácia</string>
     <string name="app_dark_theme_title">Tmavá téma aplikácie</string>
+    <string name="theme_colorPrimary">Primárna farba</string>
     <string name="hide_launcher_icon_title">Skryť ikonu aplikácie</string>
+    <string name="force_english_title">Vynútiť anglický jazyk</string>
     <string name="hide_launcher_icon">Môže vyžadovať reštartovanie spúšťača</string>
     <string name="debug_log_title">Zaznamenávanie chýb</string>
     <string name="debug_log">Upozornenie: Zahlcovanie záznamu</string>

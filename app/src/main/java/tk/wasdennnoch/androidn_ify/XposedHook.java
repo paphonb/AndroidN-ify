@@ -22,6 +22,7 @@ import tk.wasdennnoch.androidn_ify.systemui.recents.doubletap.DoubleTapSwKeys;
 import tk.wasdennnoch.androidn_ify.systemui.recents.navigate.RecentsNavigation;
 import tk.wasdennnoch.androidn_ify.systemui.recents.stack.RecentsStackHooks;
 import tk.wasdennnoch.androidn_ify.utils.ConfigUtils;
+import tk.wasdennnoch.androidn_ify.utils.RomUtils;
 
 /**
  * Right now it's impossible to explicitly use classes of the hooked package
@@ -74,14 +75,17 @@ public class XposedHook implements IXposedHookLoadPackage, IXposedHookZygoteInit
     public void initZygote(StartupParam startupParam) throws Throwable {
         sModulePath = startupParam.modulePath;
         sPrefs = new XSharedPreferences("tk.wasdennnoch.androidn_ify");
+        RomUtils.init(sPrefs);
 
         logI(TAG, "Version " + BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")");
         //noinspection ConstantConditions
         if (BuildConst.BUILD_SERVER_VERSION == 0) {
-            logI(TAG, "WDN Build; Release: " + !BuildConfig.DEBUG + " (" + BuildConfig.BUILD_TYPE + ")");
+            logI(TAG, "Official Build; Release: " + !BuildConfig.DEBUG + " (" + BuildConfig.BUILD_TYPE + ")");
         } else {
             logI(TAG, "Remote Build; Version: " + BuildConst.BUILD_SERVER_VERSION);
         }
+
+        XposedHook.logI(TAG, "ROM type: " + sPrefs.getString("rom", "undefined"));
 
         if (!sPrefs.getBoolean("can_read_prefs", false)) {
             // With SELinux enforcing, it might happen that we don't have access
@@ -129,14 +133,12 @@ public class XposedHook implements IXposedHookLoadPackage, IXposedHookZygoteInit
         // Has to be hooked in every app as every app creates own instances of the Notification.Builder
         NotificationsHooks.hook(lpparam.classLoader);
 
-        /*
         try {
             Class<?> classCMStatusBarManager = XposedHelpers.findClass("cyanogenmod.app.CMStatusBarManager", lpparam.classLoader);
             XposedBridge.hookAllMethods(classCMStatusBarManager, "publishTile", XC_MethodReplacement.DO_NOTHING);
             XposedBridge.hookAllMethods(classCMStatusBarManager, "publishTileAsUser", XC_MethodReplacement.DO_NOTHING);
         } catch (Throwable ignore) {
         }
-        */
     }
 
     @Override
@@ -153,8 +155,7 @@ public class XposedHook implements IXposedHookLoadPackage, IXposedHookZygoteInit
                 break;
         }
 
-        // Has to be hooked in every app too for some reason, probably
-        // because every hook only applies to the current process
+        // Has to be hooked in every app because every hook only applies to the current process
         ConfigUtils.notifications().loadBlacklistedApps();
         if (!ConfigUtils.notifications().blacklistedApps.contains(resparam.packageName)) {
             NotificationsHooks.hookResAndroid(resparam);

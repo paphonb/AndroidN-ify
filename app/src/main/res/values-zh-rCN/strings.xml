@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <string name="xposed_description">将 Android N 内的特性移植到 Lollipop 和 Marshmallow 版本的 rom 中！</string>
 
@@ -14,20 +12,35 @@
     <string name="about_version">版本 %1$s (%2$d)</string>
 
     <!-- prefs -->
-    <string name="prefs_file_not_readable">首选项文件无法被 Xposed 读取，在勾取方法时将使用默认的值。这可能是由于系统的 SELinux 状态为 enforcing 而导致的。</string>
-
+    <string name="prefs_not_readable"><![CDATA[<b>警告：</b>首选项文件无法被 Xposed 读取。点击查看详细信息&#8230;]]></string>
+    <string name="prefs_not_readable_description"><![CDATA[
+        Xposed 无法读取该模块的首选项文件，在钩取资源时将使用默认的值。
+        有几种方法可以用来修复此问题。另外需注意这条错误信息仅当用户先前从未
+        打开过应用时弹出。<br><br>
+        首先，重启你的设备（请勿使用软重启！）。<br>
+        如果没有帮助，尝试重新安装此模块。<br>
+        如果上述方法均无效，请确保设备的 SELinux 模式为 <i>permissive</i>.
+        <i>Enforcing</i> SELinux 可能会阻止 Xposed 接入模块的首选项文件。要修改模式，
+        请使用应用 <tt>SELinuxModeChanger</tt> 你可以在
+        <a href="http://forum.xda-developers.com/showthread.php?t=2524485">XDA 上的相关话题帖</a>内下载该应用。<br>
+        如果即便如此依旧无效的话，你将可能需要继续忍受此问题了，在此深感抱歉 :(
+        ]]></string>
+    
     <string name="header_tweaks">调整</string>
     <string name="header_app">应用</string>
 
     <string name="app_dark_theme_title">使用暗色主题</string>
     <string name="hide_launcher_icon_title">隐藏应用图标</string>
     <string name="hide_launcher_icon">或许需要重启桌面</string>
+    <string name="force_english_title">强制显示英语</string>
     <string name="debug_log_title">调试日志</string>
     <string name="debug_log">警告：将生成大量日志</string>
 
     <string name="requires_android_version">所需安卓版本 %1$s</string>
 	
     <string name="not_activated">模块尚未激活</string>
+	
+    <string name="theme_colorPrimary">主色调</string>
     <!-- /prefs -->
 
     <!-- SETTINGS -->
@@ -36,6 +49,7 @@
     <string name="enable_settings_summaries">在设置内直接显示最重要的系统信息</string>
     <string name="fix_sound_notif_tile_title">修复“提示音和通知”项</string>
     <string name="fix_sound_notif_tile">一些 rom 的设置内将提示音与通知二者合并为了一个项目，启用后可在这类 rom 中显示出正确的信息摘要。</string>
+    <string name="enable_n_platlogo_title">在系统彩蛋内显示 Android N 的标志</string>
 
     <string name="disconnected">未连接</string>
     <string name="disabled">已禁用</string>
@@ -64,9 +78,7 @@
     <string name="enable_recents_double_tap">双击多任务键时切换至上一个使用过的应用</string>
     <string name="double_tap_speed_title">双击速度</string>
     <string name="recents_button_behavior_title">多任务键点击行为</string>
-    <string name="enable_recents_navigation_title">启用最近任务导航</string>
-    <string name="enable_recents_navigation">反复点击多任务键时依次浏览近期任务</string>
-    <string name="recents_navigation_delay_title">最近任务导航延时</string>
+    <string name="recents_navigation_delay_title">任务导航延时</string>
     <string name="recents_navigation_delay">所选任务被打开的时间</string>
     <string name="enable_large_recents">启用更大尺寸的任务卡片</string>
     <string name="no_recents_image">更改没有最近任务时的界面样式</string>
@@ -81,8 +93,13 @@
     <!-- STATUS BAR HEADER -->
     <string name="header_status_bar_header">下拉顶栏</string>
     <string name="enable_notification_header">调整顶栏</string>
+    <string name="keep_qs_panel_bg_title">不更改快速设置面板背景</string>
+    <string name="keep_qs_panel_bg">对所用主题内包含有自定义快速设置面板背景的用户有帮助</string>
     <string name="notification_header_qs_tiles_count">顶栏内的磁贴数量</string>
     <string name="notification_header_qs_tiles_count_monitor">个</string>
+    <string name="battery_tile_show_percentage">在电池磁贴内显示电量百分比</string>
+    <string name="alternative_header_qs_method_title">备选的快速设置加载方案</string>
+    <string name="alternative_header_qs_method">当快速设置磁贴出现位置错误时启用该选项</string>
     <string name="enable_new_tile_click_behavior">启用安卓 N 式磁贴点击行为</string>
     <string name="enable_new_tile_click_behavior_summary">点击顶栏内的磁贴时直接切换状态\n点击快速设置面板内的磁贴时展开设置项</string>
     <string name="enable_large_first_row">扩大首行磁贴</string>
@@ -102,15 +119,15 @@
     <!-- NOTIFICATIONS -->
     <string name="header_notifications">通知区域</string>
     <string name="notifications_change_style">调整通知</string>
-    <string name="notifications_dark_theme_title">启用暗色主题通知</string>
-    <string name="notifications_dark_theme">针对某些特定层面主题的用户使用暗色调的通知背景</string>
     <string name="notification_dismiss_button_title">更改清除按钮</string>
     <string name="notification_dismiss_button">使用 \"全部清除\" 字样替换原有的图标</string>
-    <string name="notification_allow_load_label_with_pm_title">备选的应用名称加载方案</string>
-    <string name="notification_allow_load_label_with_pm">允许通过软件包安装程序加载应用名称。可能会影响手机性能</string>
     <string name="action_search">搜索</string>
     <string name="notification_blacklisted_apps_title">黑名单应用</string>
     <string name="notification_blacklisted_apps">所选应用将使用旧风格的通知</string>
+    <string name="notifications_custom_color_title">使用自定义的通知强调色</string>
+    <string name="notifications_accent_color_title">通知强调色</string>
+    <string name="notifications_custom_actions_color_title">使用自定义的通知操作背景色</string>
+    <string name="notifications_actions_color_title">通知操作背景色</string>
     <!-- /NOTIFICATIONS -->
 
     <!-- UPDATE -->
@@ -126,7 +143,16 @@
     <string name="update_notification_downloading_details">正在下载版本 %1$d 的更新</string>
     <string name="update_notification_download_fail">下载失败</string>
     <string name="update_notification_download_fail_details">无法下载版本 %1$d 的更新</string>
-    <string name="enable_n_platlogo_title">在系统彩蛋中显示 Android N 的标志</string>
     <!-- /UPDATE -->
 
+    <!-- BATTERY -->
+    <string name="battery">电池</string>
+    <string name="charged">已充满</string>
+    <string name="charging">正在充电，%1$s</string>
+    <!-- /BATTERY -->
+
+    <!-- QS -->
+    <string name="qs_edit">编辑</string>
+    <string name="qs_edit_detail">编辑磁贴</string>
+    <!-- /QS -->
 </resources>
